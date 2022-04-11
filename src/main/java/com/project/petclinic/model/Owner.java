@@ -2,6 +2,10 @@ package com.project.petclinic.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.project.petclinic.rest.JacksonCustomOwnerDeserializer;
+import com.project.petclinic.rest.JacksonCustomOwnerSerializer;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 
@@ -17,6 +21,8 @@ import java.util.*;
  */
 @Entity
 @Table(name = "owners")
+@JsonSerialize(using = JacksonCustomOwnerSerializer.class)
+@JsonDeserialize(using = JacksonCustomOwnerDeserializer.class)
 public class Owner extends Person {
     @Column(name = "address")
     @NotEmpty
