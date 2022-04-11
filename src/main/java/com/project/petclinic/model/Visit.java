@@ -2,6 +2,10 @@ package com.project.petclinic.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.project.petclinic.rest.JacksonCustomVisitDeserializer;
+import com.project.petclinic.rest.JacksonCustomVisitSerializer;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -15,6 +19,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "visits")
+@JsonSerialize(using = JacksonCustomVisitSerializer.class)
+@JsonDeserialize(using = JacksonCustomVisitDeserializer.class)
 public class Visit extends BaseEntity {
 
     @Column(name = "visit_date")
