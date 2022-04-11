@@ -1,6 +1,10 @@
 package com.project.petclinic.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.project.petclinic.rest.JacksonCustomPetDeserializer;
+import com.project.petclinic.rest.JacksonCustomPetSerializer;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,6 +19,8 @@ import java.util.*;
  */
 @Entity
 @Table(name = "pets")
+@JsonSerialize(using = JacksonCustomPetSerializer.class)
+@JsonDeserialize(using = JacksonCustomPetDeserializer.class)
 public class Pet extends NamedEntity {
 
     @Column(name = "birth_date")
