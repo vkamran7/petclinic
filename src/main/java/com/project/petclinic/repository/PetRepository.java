@@ -1,10 +1,12 @@
 package com.project.petclinic.repository;
 
 import com.project.petclinic.model.Pet;
+import com.project.petclinic.model.PetType;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataRetrievalFailureException;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Repository class for <code>Pet</code> domain objects. All method names are compliant with Spring Data naming
@@ -42,4 +44,11 @@ public interface PetRepository {
      * @throws DataAccessException
      */
     void delete(Pet pet) throws DataAccessException;
+
+    /**
+     * Retrieve all <code>PetType</code> from a data store
+     * @return a <code>List</code> of a <code>PetType</code>
+     * @throws DataAccessException
+     */
+    List<PetType> findPetTypes() throws DataAccessException;
 }
