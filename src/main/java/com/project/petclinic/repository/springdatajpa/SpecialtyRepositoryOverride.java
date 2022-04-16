@@ -1,12 +1,12 @@
 package com.project.petclinic.repository.springdatajpa;
 
 import com.project.petclinic.model.Specialty;
-import org.springframework.context.annotation.Profile;
+import com.project.petclinic.support.annotation.SpringDataJpaProfile;
 
 /**
  * @author Kamran Valizada
  */
-@Profile("spring-data-jpa")
+@SpringDataJpaProfile
 public interface SpecialtyRepositoryOverride {
 
     void delete(Specialty specialty);
