@@ -75,7 +75,7 @@ public class OwnerController {
     }
 
     @PreAuthorize("hasRole(@roles.OWNER_ADMIN)")
-    @PutMapping("/{ownerId")
+    @PutMapping("/{ownerId}")
     public ResponseEntity<Owner> updateOwner(@PathVariable("ownerId") int ownerId,
                                              @RequestBody @Valid Owner owner,
                                              BindingResult bindingResult,
